@@ -8,7 +8,6 @@ const PreJoinRoom = () => {
   const { joinRoom, error } = useCallState();
 
   const firstNameRef = useRef(null);
-  const lastNameRef = useRef(null);
   const roomNameRef = useRef(null);
   const [roomName, setRoomName] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -30,11 +29,10 @@ const PreJoinRoom = () => {
       setSubmitting(true);
       if (
         !firstNameRef?.current ||
-        !lastNameRef?.current ||
         !roomNameRef?.current
       )
         return;
-      let userName = `${firstNameRef?.current?.value} ${lastNameRef?.current?.value}`;
+      let userName = `${firstNameRef?.current?.value}`;
 
       let name = "";
       if (roomNameRef?.current?.value?.trim()) {
@@ -54,14 +52,14 @@ const PreJoinRoom = () => {
       }
       joinRoom({ userName, name });
     },
-    [firstNameRef, lastNameRef, roomNameRef, joinRoom, submitting]
+    [firstNameRef, roomNameRef, joinRoom, submitting]
   );
 
   return (
     <Container>
       <Title>Getting started</Title>
       <Form onSubmit={submitForm}>
-        <Label htmlFor="fname">First name</Label>
+        <Label htmlFor="fname">First name (or nickname)</Label>
         <Input
           ref={firstNameRef}
           type="text"
@@ -69,8 +67,6 @@ const PreJoinRoom = () => {
           name="fname"
           required
         />
-        <Label htmlFor="lname">Last name</Label>
-        <Input ref={lastNameRef} type="text" id="lname" name="lname" />
         <Label htmlFor="room">Join code</Label>
         <Input
           ref={roomNameRef}
