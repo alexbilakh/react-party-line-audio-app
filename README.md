@@ -1,15 +1,31 @@
-# Party line: Audio-only demos for React, React Native, iOS, and Android
+# Party line: An audio-only demo for React
 
-## Built by and with [Daily](https://www.daily.co/)
+## Built by and with [Daily](https://docs.daily.co/docs/reference-docs)
 
-![party line screenshot](screenshot.png)
+---
 
-Multi-platform audio-only demos, for React, React Native, Android, and iOS.
+This app is built using [Create React App](https://github.com/facebook/create-react-app).
 
-See individual folder READMEs for setup instructions.
+To run locally:
 
-Or deploy React and serverless parts instantly with the following button:
+- Clone this repo locally
+- Run the following
 
-[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/daily-demos/party-line)
+```terminal
+npm i
+npm run start
+```
 
-For a detailed overview, read our blog post on [building an audio-only app in a weekend.](https://www.daily.co/blog/p/6cf7dfd2-8214-456b-a495-2a089a3a89c7/)
+## Testing
+
+To add more participants to your call, you can run additional windows locally or take advantage of the React demo currently hosted at [partyline.daily.co](https://partyline.daily.co/).
+
+## Deployment
+
+Once you've deployed your own server, make sure to update the necessary URLs as noted in:
+
+- react/src/CallProvider.jsx
+
+## A note for Safari users
+
+Safari prevents the auto playing of audio by default. You can enable this in Preferences > Websites > Auto-Play
