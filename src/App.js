@@ -41,6 +41,8 @@ const AppContainer = styled.div`
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+  padding-bottom: 52px;
+  box-sizing: border-box;
 `;
 const Wrapper = styled.div`
   max-width: 700px;

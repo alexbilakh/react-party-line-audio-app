@@ -97,10 +97,10 @@ const Participant = ({ participant, local, modCount }) => {
               text: "Make moderator",
               action: () => changeAccountType(participant, MOD),
             },
-            {
-              text: "Make listener",
-              action: () => changeAccountType(participant, LISTENER),
-            },
+            // {
+            //   text: "Make listener",
+            //   action: () => changeAccountType(participant, LISTENER),
+            // },
             {
               text: "Remove from call",
               action: () => removeFromCall(participant),

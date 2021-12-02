@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState, useEffect } from "react";
 import styled from "styled-components";
-import { LISTENER, MOD } from "../App";
+import { SPEAKER, MOD } from "../App";
 import theme from "../theme";
 import { useCallState } from "../CallProvider";
 
@@ -42,7 +42,7 @@ const PreJoinRoom = () => {
          * This is a quick solution for a demo; not a production-worthy solution!
          * You'd likely make a call to your server here to set the account type.
          */
-        userName = `${userName?.trim()}_${LISTENER}`;
+        userName = `${userName?.trim()}_${SPEAKER}`;
       } else {
         /**
          * If they're not submitting a specific room name, we'll create a new
@@ -75,10 +75,6 @@ const PreJoinRoom = () => {
           name="room"
           onChange={handleRoomChange}
         />
-        <SmallText>
-          Enter code to join an existing room, or leave empty to create a new
-          room.
-        </SmallText>
         <Submit
           type="submit"
           value={

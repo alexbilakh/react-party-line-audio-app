@@ -5,7 +5,6 @@ import { SPEAKER, LISTENER, MOD } from "../App";
 import CopyLinkBox from "./CopyLinkBox";
 import Participant from "./Participant";
 import Audio from "./Audio";
-import Counter from "./Counter";
 import MicIcon from "./MicIcon";
 import MutedIcon from "./MutedIcon";
 import theme from "../theme";
@@ -42,27 +41,6 @@ const InCall = () => {
       participants?.filter((p) => getAccountType(p?.user_name) === SPEAKER),
     [participants, getAccountType]
   );
-  const listeners = useMemo(() => {
-    const l = participants
-      ?.filter((p) => getAccountType(p?.user_name) === LISTENER)
-      .sort((a, _) => {
-        // Move raised hands to front of list
-        if (a?.user_name.includes("✋")) return -1;
-        return 0;
-      });
-    return (
-      <ListeningContainer>
-        {l?.map((p, i) => (
-          <Participant
-            participant={p}
-            key={`listening-${p.user_id}`}
-            local={local}
-            modCount={mods?.length}
-          />
-        ))}
-      </ListeningContainer>
-    );
-  }, [participants, getAccountType, local, mods]);
 
   const canSpeak = useMemo(() => {
     const s = [...mods, ...speakers];
@@ -95,11 +73,8 @@ const InCall = () => {
     <Container hidden={view !== INCALL}>
       <CallHeader>
         <Header>Speakers</Header>
-        <Counter />
       </CallHeader>
       {canSpeak}
-      <Header>Listeners</Header>
-      {listeners}
       <CopyLinkBox room={room} />
       <Tray>
         <TrayContent>
@@ -163,7 +138,7 @@ const CallHeader = styled.div`
 const Tray = styled.div`
   display: flex;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   height: 52px;
