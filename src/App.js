@@ -2,7 +2,6 @@ import styled from "styled-components";
 import InCall from "./components/InCall";
 import PreJoinRoom from "./components/PreJoinRoom";
 import theme from "./theme";
-import logo from "./icons/logo.svg";
 import { SmallText } from "./components/shared/SmallText";
 import { CallProvider, INCALL, PREJOIN, useCallState } from "./CallProvider";
 
@@ -18,7 +17,6 @@ const AppContent = () => {
         <Header>
           <HeaderTop>
             <Title>TapTalk</Title>
-            <Logo src={logo} className="App-logo" alt="logo" />
           </HeaderTop>
           <SmallText>Your private audio room</SmallText>
         </Header>
