@@ -113,6 +113,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   margin: 0 0 24px;
+  width: 100%;
 `;
 const SmallText = styled.p`
   font-size: ${theme.fontSize.base};
