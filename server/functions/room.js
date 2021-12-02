@@ -23,7 +23,7 @@ exports.handler = async function (event, context) {
       properties: {
         // expire in 60 minutes
         // exp: Math.round(Date.now() / 1000) + 60 * 60,
-        // exp: Infinity,
+        exp: Infinity,
         eject_at_room_exp: true,
         signaling_impl: "ws",
       },
@@ -35,7 +35,7 @@ exports.handler = async function (event, context) {
       properties: {
         // expire in 60 minutes
         // exp: Math.round(Date.now() / 1000) + 60 * 60,
-        // exp: Infinity,
+        exp: Infinity,
         room_name: room.name,
         is_owner: true,
       },
