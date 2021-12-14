@@ -26,7 +26,6 @@ exports.handler = async function (event, context) {
       properties: {
         // expire in 100 hours
         exp: Math.round(Date.now() / 1000) + 100 * 60 * 60,
-        exp: Infinity,
         room_name: roomName,
         is_owner: true,
       },
